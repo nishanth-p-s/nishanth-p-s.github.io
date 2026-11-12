@@ -10,7 +10,7 @@ author_profile: true
 ### Deep Learning for Natural Language Processing
 **Platform:** NPTEL
 
-**Achievement:** Top 5% marks
+**Achievement:** Topper (TOP 5% marks)
 
 [View Certificate](/assets/certificates/nptel-deep-learning-nlp.pdf)
 
