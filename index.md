@@ -2,10 +2,6 @@
 layout: splash
 title: "Welcome!"
 permalink: /
-header:
-  overlay_image: /assets/images/hero.jpg
-  overlay_filter: 0.55
-  overlay_color: "#000"
 author_profile: true
 ---
 
