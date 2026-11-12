@@ -1,10 +1,8 @@
-
 ---
-layout: single
+layout: splash
 title: "Welcome!"
 permalink: /
 author_profile: true
-classes: wide
 ---
 
 # Hey, I'm Nishanth! 👋
