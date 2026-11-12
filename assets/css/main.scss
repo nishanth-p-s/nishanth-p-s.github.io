@@ -47,3 +47,30 @@ body {
 .page__content h3 {
   color: #ffffff;
 }
+
+/* Make the navigation bar transparent */
+.masthead {
+  background: transparent !important;
+  border-bottom: none;
+  position: relative;
+  z-index: 10;
+}
+
+.masthead__inner-wrap {
+  background: transparent !important;
+}
+
+.greedy-nav {
+  background: transparent !important;
+}
+
+/* Navigation text */
+.masthead a,
+.greedy-nav a {
+  color: #ffffff !important;
+}
+
+/* Search icon */
+.greedy-nav .search__toggle {
+  color: #ffffff !important;
+}
