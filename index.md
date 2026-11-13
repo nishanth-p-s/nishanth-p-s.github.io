@@ -43,11 +43,11 @@ An attempt on building a new encryption architecture specific to Image using kno
 I'm someone who enjoys learning how things work, experimenting with ideas and occasionally getting lost in research rabbit holes.
 Other Hobbies includes:
 
--Football
--Boxing
--Beatboxing
--Stage Hypnotism
--Weightlifting
+- Football
+- Boxing
+- Beatboxing
+- Stage Hypnotism
+- Weightlifting
 
 
 
