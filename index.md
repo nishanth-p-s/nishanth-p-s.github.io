@@ -23,11 +23,12 @@ Experimenting using EEG and EOG signal processing and machine learning for autom
 Exploring video-based sign language recognition using deep learning architectures such as I3D and graph-based models (TGCN).
 
 ## Previously worked on
+
 ### -> Comparative analysis of different RL algorithms on custom environment (Car automation) (Course Project: DSC 414)
 Experimented with *DQN*, *PPO*, *TRPO* in a gymnasium environment created by us using the gymnasium primitives.
 
 ### -> Image Encryption using chaotic map
-An attempt on building a new encryption architecture specific to Image using known chaotic maps. Experimented with a bunch of chaotic maps, First ever Proper research project !
+An attempt on building a new encryption architecture specific to Image using known chaotic maps. Experimented with a bunch of chaotic maps, First ever proper Research project !
 
 
 ## Areas of Interest
@@ -38,7 +39,7 @@ An attempt on building a new encryption architecture specific to Image using kno
 - Deep Learning
 - Cryptography
 
-## Beyond the academic life
+## Beyond the Academia..
 
 I'm someone who enjoys learning how things work, experimenting with ideas and occasionally getting lost in research rabbit holes.
 Other Hobbies includes:
@@ -48,6 +49,9 @@ Other Hobbies includes:
 - Beatboxing
 - Stage Hypnotism
 - Weightlifting
+- Talking
+
+If you feel like reaching out to me, to discuss either research or absolutely anything under the umbrella of hobbies listed above, feel free to drop me a message !
 
 
 
