@@ -1,36 +1,202 @@
 ---
+# Front matter is required so Jekyll compiles this file with Sass.
 ---
 
 @charset "utf-8";
 
-// Load the selected Minimal Mistakes skin first
+/* ==========================================================================
+   NISHANTH PS — PORTFOLIO THEME  (Minimal Mistakes, "default" skin)
+   Concept: a lab notebook meets a signal-processing console.
+            Deep ink background, one bright "EEG-trace" accent, serif headings
+            for scholarship, mono for technical detail.
+
+   CONTENTS
+   00  Web fonts
+   01  Design tokens
+   02  Minimal Mistakes variable overrides (must come BEFORE the imports)
+   03  Theme imports
+   04  Mixins
+   05  Base: page, background, selection, scrollbar, focus
+   06  Masthead & navigation
+   07  Content surface & typography
+   08  Components: links, lists, chips, buttons, code, quotes, tables, notices
+   09  Author sidebar
+   10  Archive / project cards
+   11  Search overlay
+   12  Footer
+   13  Motion
+   14  Responsive
+   ========================================================================== */
+
+
+/* ==========================================================================
+   00  WEB FONTS
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+
+/* ==========================================================================
+   01  DESIGN TOKENS
+   ========================================================================== */
+
+// Colour — surfaces
+$c-ink:          #070b14;   // page base
+$c-surface:      #0e1627;   // panels, cards
+$c-line-solid:   #1b263d;   // solid hairline (for MM variables)
+
+// Colour — text
+$c-text:         #e7ecf6;
+$c-muted:        #9ba8c0;
+$c-faint:        #6b7894;
+
+// Colour — accents
+$c-signal:       #4dd4e6;   // primary accent: the "EEG trace"
+$c-signal-hi:    #a5eef7;
+$c-violet:       #8f87ff;   // secondary: depth / cortex
+$c-violet-soft:  #b9b3ff;
+$c-amber:        #f4b66a;   // warmth, used sparingly
+
+// Translucent lines
+$c-line:         rgba(255, 255, 255, 0.08);
+$c-line-strong:  rgba(255, 255, 255, 0.16);
+
+// Type
+$font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+$font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+// Shape & depth
+$r-sm: 8px;
+$r-md: 14px;
+$r-lg: 22px;
+$shadow-soft: 0 24px 60px -24px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+$shadow-lift: 0 22px 50px -18px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(77, 212, 230, 0.12);
+
+// Motion
+$ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+// Signature motif: a tiny EEG spike used as a divider
+$eeg-trace: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='18' viewBox='0 0 180 18'%3E%3Cpath d='M0 9 H22 L28 3 L34 15 L40 9 H78 L83 5 L88 13 L93 9 H180' fill='none' stroke='%234dd4e6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+
+/* ==========================================================================
+   02  MINIMAL MISTAKES VARIABLE OVERRIDES
+   The theme's skin declares these with !default, so defining them first
+   makes the whole theme (links, borders, forms, code) inherit the palette.
+   ========================================================================== */
+
+$background-color:            $c-ink;
+$body-color:                  $c-ink;
+$text-color:                  $c-text;
+$muted-text-color:            $c-muted;
+$primary-color:               $c-signal;
+$border-color:                $c-line-solid;
+$code-background-color:       #0a1020;
+$code-background-color-dark:  #0a1020;
+$form-background-color:       $c-surface;
+$footer-background-color:     $c-ink;
+
+$link-color:                  $c-signal;
+$link-color-hover:            $c-signal-hi;
+$link-color-visited:          $c-violet-soft;
+
+$masthead-link-color:         $c-text;
+$masthead-link-color-hover:   #ffffff;
+$navicon-link-color-hover:    $c-signal;
+
+$sans-serif:                  $font-body;
+$serif:                       $font-display;
+$monospace:                   $font-mono;
+$global-font-family:          $font-body;
+$header-font-family:          $font-display;
+$caption-font-family:         $font-body;
+
+
+/* ==========================================================================
+   03  THEME IMPORTS
+   ========================================================================== */
+
 @import "minimal-mistakes/skins/default";
 @import "minimal-mistakes";
 
-/* Full-page background */
+
+/* ==========================================================================
+   04  MIXINS
+   ========================================================================== */
+
+@mixin glass($alpha: 0.55, $radius: $r-lg) {
+  background: rgba($c-surface, $alpha);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  backdrop-filter: blur(14px) saturate(130%);
+  border: 1px solid $c-line;
+  border-radius: $radius;
+  box-shadow: $shadow-soft;
+}
+
+@mixin gradient-text($from: #ffffff, $mid: $c-signal-hi, $to: $c-violet-soft) {
+  color: $from; // fallback
+  background-image: linear-gradient(115deg, $from 15%, $mid 55%, $to 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* ==========================================================================
+   05  BASE
+   ========================================================================== */
 
 html {
   min-height: 100%;
-  background-color: #0a0f19;
+  background-color: $c-ink;
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
-  background-image:
-    linear-gradient(
-      rgba(10, 15, 25, 0.65),
-      rgba(10, 15, 25, 0.75)
-    ),
-    url("/assets/images/hero.jpg");
+  font-family: $font-body;
+  color: $c-text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 
-  background-position: center top;
-  background-size: cover;
+  // Atmosphere: two soft glows over your hero image, darkened for legibility.
+  background-color: $c-ink;
+  background-image:
+    radial-gradient(60rem 40rem at 88% -8%, rgba($c-violet, 0.18), transparent 60%),
+    radial-gradient(50rem 36rem at 0% 0%, rgba($c-signal, 0.12), transparent 55%),
+    linear-gradient(rgba($c-ink, 0.72), rgba($c-ink, 0.92)),
+    url("/assets/images/hero.jpg");
+  background-size: auto, auto, auto, cover;
+  background-position: center, center, center, center top;
   background-repeat: no-repeat;
   background-attachment: scroll;
 }
 
-/* Let the background show through the content areas */
+// A faint dot lattice — a nod to electrode grids / neural meshes.
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 15%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 50% 15%, #000 0%, transparent 72%);
+}
 
+// Keep real content above the lattice
+.masthead,
+.initial-content,
+.page__footer {
+  position: relative;
+  z-index: 1;
+}
+
+// Let the background show through the theme's containers
 .initial-content,
 .page,
 .page__inner-wrap,
@@ -38,39 +204,632 @@ body {
   background: transparent;
 }
 
-.page__content {
-  color: #f1f1f1;
-}
-
-.page__content h1,
-.page__content h2,
-.page__content h3 {
+::selection {
+  background: rgba($c-signal, 0.35);
   color: #ffffff;
 }
 
-/* Make the navigation bar transparent */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba($c-signal, 0.35) transparent;
+}
+
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: rgba($c-signal, 0.28);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+:focus-visible {
+  outline: 2px solid $c-signal;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+
+/* ==========================================================================
+   06  MASTHEAD & NAVIGATION
+   ========================================================================== */
+
 .masthead {
-  background: transparent !important;
-  border-bottom: none;
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba($c-ink, 0.55) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid $c-line;
 }
 
-.masthead__inner-wrap {
-  background: transparent !important;
-}
-
+.masthead__inner-wrap,
 .greedy-nav {
   background: transparent !important;
 }
 
-/* Navigation text */
-.masthead a,
-.greedy-nav a {
-  color: #ffffff !important;
+.greedy-nav {
+  .site-title {
+    font-family: $font-display;
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+  }
+
+  // Links
+  a,
+  .visible-links a {
+    color: $c-muted !important;
+    font-family: $font-body;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: color 0.25s $ease;
+  }
+
+  a:hover,
+  .visible-links a:hover {
+    color: #ffffff !important;
+  }
+
+  .site-title,
+  .site-title:hover {
+    color: #ffffff !important;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-size: 1.15rem;
+  }
+
+  // MM's animated underline
+  .visible-links a:before {
+    height: 2px;
+    bottom: -0.45em;
+    background: linear-gradient(90deg, $c-signal, $c-violet);
+    border-radius: 2px;
+  }
+
+  // Search + hamburger
+  .search__toggle { color: $c-text !important; }
+
+  button {
+    background: transparent !important;
+    border: 0;
+  }
+
+  .navicon,
+  .navicon:before,
+  .navicon:after {
+    background: $c-text !important;
+  }
+
+  // Collapsed menu
+  .hidden-links {
+    @include glass(0.9, $r-md);
+    padding: 0.4rem;
+    border: 1px solid $c-line-strong;
+
+    &:before,
+    &:after { display: none; }
+
+    li { border-bottom: 1px solid $c-line; }
+    li:last-child { border-bottom: 0; }
+  }
 }
 
-/* Search icon */
-.greedy-nav .search__toggle {
-  color: #ffffff !important;
+
+/* ==========================================================================
+   07  CONTENT SURFACE & TYPOGRAPHY
+   ========================================================================== */
+
+.page__content {
+  @include glass(0.5);
+  margin-top: 1.5rem;
+  padding: clamp(1.25rem, 3.2vw, 2.9rem);
+  color: $c-text;
+  font-size: 1rem;
+  line-height: 1.75;
+
+  p,
+  li {
+    color: $c-text;
+  }
+
+  p { max-width: 72ch; }
+
+  strong { color: #ffffff; font-weight: 600; }
+  em     { color: $c-signal-hi; font-style: italic; }
+}
+
+// Page title (when a layout renders one) and hero heading share one look
+.page__title,
+.page__content h1 {
+  font-family: $font-display;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-size: clamp(2.2rem, 1.4rem + 3.2vw, 3.5rem);
+  margin: 0 0 1.4rem;
+  @include gradient-text;
+}
+
+// Signature EEG-spike divider
+.page__title::after,
+.page__content > h1:first-child::after {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 18px;
+  margin-top: 0.9rem;
+  background: $eeg-trace no-repeat left center;
+  opacity: 0.85;
+}
+
+// Lead paragraph under the hero heading
+.page__content > h1 + p {
+  font-size: 1.18em;
+  line-height: 1.7;
+  color: $c-text;
+}
+
+// Section headings — tiny mono "//" prefix, hairline that fades out
+.page__content h2 {
+  position: relative;
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.85rem);
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 2.8rem 0 1.2rem;
+  padding: 0 0 0.75rem;
+  border-bottom: 0;
+
+  &::before {
+    content: "//";
+    font-family: $font-mono;
+    font-size: 0.7em;
+    font-weight: 500;
+    color: $c-signal;
+    margin-right: 0.6rem;
+    opacity: 0.85;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, $c-line-strong, transparent 80%);
+  }
+}
+
+// Project / item headings
+.page__content h3 {
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 1.08rem;
+  letter-spacing: 0.005em;
+  color: $c-signal-hi;
+  margin: 1.8rem 0 0.4rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid $c-signal;
+}
+
+.page__content h3 + p {
+  padding-left: calc(0.9rem + 2px);
+  color: $c-muted;
+  margin-top: 0;
+}
+
+.page__content h4,
+.page__content h5,
+.page__content h6 {
+  font-family: $font-mono;
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $c-amber;
+}
+
+.page__content hr {
+  border: 0;
+  height: 1px;
+  margin: 2.5rem 0;
+  background: linear-gradient(90deg, transparent, $c-line-strong, transparent);
+}
+
+
+/* ==========================================================================
+   08  COMPONENTS
+   ========================================================================== */
+
+/* ---- Links ---- */
+.page__content a:not(.btn) {
+  color: $c-signal;
+  text-decoration: underline;
+  text-decoration-color: rgba($c-signal, 0.4);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 0.2s $ease, text-decoration-color 0.2s $ease;
+
+  &:visited { color: $c-violet-soft; text-decoration-color: rgba($c-violet-soft, 0.4); }
+  &:hover   { color: #ffffff; text-decoration-color: $c-signal; }
+}
+
+/* ---- Lists: glowing node bullets ---- */
+.page__content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0.35rem 0;
+  }
+
+  li::before {
+    content: "";
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $c-signal;
+    box-shadow: 0 0 10px rgba($c-signal, 0.8);
+  }
+}
+
+.page__content ol li::marker {
+  color: $c-signal;
+  font-family: $font-mono;
+}
+
+/* ---- Chips (opt-in) ----
+   In Markdown, add  {: .chips}  on the line right after a list to render it
+   as a row of pills, e.g. for "Areas of Interest".  */
+.page__content ul.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.1rem 0;
+
+  li {
+    margin: 0;
+    padding: 0.38rem 0.95rem;
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: $c-signal-hi;
+    background: rgba($c-signal, 0.07);
+    border: 1px solid rgba($c-signal, 0.32);
+    border-radius: 999px;
+    transition: background 0.25s $ease, transform 0.25s $ease, border-color 0.25s $ease;
+
+    &::before { display: none; }
+
+    &:hover {
+      background: rgba($c-signal, 0.16);
+      border-color: rgba($c-signal, 0.6);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* ---- Buttons ---- */
+.btn {
+  font-family: $font-body;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  padding: 0.65em 1.4em;
+  color: $c-ink !important;
+  background: linear-gradient(120deg, $c-signal, $c-violet);
+  border: 0;
+  box-shadow: 0 10px 30px -10px rgba($c-signal, 0.6);
+  transition: transform 0.25s $ease, box-shadow 0.25s $ease, filter 0.25s $ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 16px 36px -10px rgba($c-signal, 0.7);
+  }
+}
+
+.btn--inverse,
+.btn--light-outline {
+  background: transparent;
+  color: $c-text !important;
+  border: 1px solid $c-line-strong;
+  box-shadow: none;
+}
+
+/* ---- Code ---- */
+div.highlighter-rouge,
+figure.highlight {
+  background: #0a1020 !important;
+  border: 1px solid $c-line;
+  border-radius: $r-md;
+  box-shadow: none;
+}
+
+pre,
+code {
+  font-family: $font-mono;
+}
+
+p > code,
+li > code,
+td > code,
+a > code {
+  color: $c-signal-hi;
+  background: rgba($c-signal, 0.09);
+  border: 1px solid rgba($c-signal, 0.18);
+  border-radius: 6px;
+}
+
+/* ---- Blockquote ---- */
+blockquote {
+  margin: 1.8rem 0;
+  padding: 0.4rem 0 0.4rem 1.2rem;
+  border-left: 3px solid $c-violet;
+  color: $c-muted;
+  font-family: $font-display;
+  font-style: italic;
+
+  cite { color: $c-faint; font-family: $font-body; font-style: normal; }
+}
+
+/* ---- Tables ---- */
+table {
+  background: transparent;
+  border-bottom: 1px solid $c-line;
+
+  thead { background: rgba($c-signal, 0.08); }
+
+  th {
+    font-family: $font-mono;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $c-signal-hi;
+  }
+
+  th,
+  td { border-bottom: 1px solid $c-line; }
+}
+
+/* ---- Notices ---- */
+.notice,
+.notice--primary,
+.notice--info,
+.notice--warning,
+.notice--success,
+.notice--danger {
+  background: rgba($c-signal, 0.07);
+  color: $c-text;
+  border-left: 3px solid $c-signal;
+  border-radius: $r-sm;
+  box-shadow: none;
+
+  h4 { color: #ffffff; }
+  a  { color: $c-signal-hi; }
+}
+
+.notice--warning { background: rgba($c-amber, 0.08); border-left-color: $c-amber; }
+
+
+/* ==========================================================================
+   09  AUTHOR SIDEBAR
+   ========================================================================== */
+
+.author__avatar img {
+  border-radius: 50%;
+  border: 2px solid rgba($c-signal, 0.5);
+  box-shadow: 0 0 0 7px rgba($c-signal, 0.07), 0 14px 40px rgba($c-signal, 0.18);
+}
+
+.author__name {
+  font-family: $font-display;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.author__bio,
+.author__content {
+  color: $c-muted;
+}
+
+.author__urls {
+  @include glass(0.92, $r-md);
+
+  a { color: $c-text; }
+  a:hover { color: $c-signal; }
+}
+
+
+/* ==========================================================================
+   10  ARCHIVE / PROJECT CARDS
+   ========================================================================== */
+
+.archive__item {
+  @include glass(0.5, $r-md);
+  padding: 1.25rem 1.35rem;
+  overflow: hidden;
+  transition: transform 0.35s $ease, border-color 0.35s $ease, box-shadow 0.35s $ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba($c-signal, 0.4);
+    box-shadow: $shadow-lift;
+  }
+}
+
+.archive__item-title {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0 0 0.45rem;
+
+  a { color: #ffffff; text-decoration: none; }
+  a:hover { color: $c-signal; }
+}
+
+.archive__item-excerpt { color: $c-muted; }
+
+.archive__item-teaser {
+  border-radius: $r-sm;
+  overflow: hidden;
+}
+
+.archive__subtitle {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $c-muted;
+  border-bottom: 1px solid $c-line;
+}
+
+.page__meta,
+.page__meta a {
+  color: $c-faint;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+}
+
+.pagination .page--current,
+.pagination a {
+  border-radius: 999px;
+  border-color: $c-line-strong;
+}
+
+
+/* ==========================================================================
+   11  SEARCH OVERLAY
+   ========================================================================== */
+
+.search-content,
+.search-content__inner-wrap {
+  background: rgba($c-ink, 0.92);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.search-content .search-input,
+.search-input {
+  background: transparent;
+  color: $c-text;
+  border-bottom: 1px solid $c-line-strong;
+  font-family: $font-body;
+
+  &::placeholder { color: $c-faint; }
+}
+
+.search-content .results__found { color: $c-muted; }
+
+
+/* ==========================================================================
+   12  FOOTER
+   ========================================================================== */
+
+.page__footer {
+  margin-top: 4rem;
+  background: transparent;
+  color: $c-muted;
+  border-top: 1px solid $c-line;
+
+  a { color: $c-muted; transition: color 0.2s $ease; }
+  a:hover { color: $c-signal; }
+
+  footer { padding-top: 1rem; }
+}
+
+.page__footer-follow ul li {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+// Replace the default brand-coloured icons with a quiet, unified set
+.page__footer-follow .social-icons a,
+.page__footer-follow .social-icons .fa,
+.page__footer-follow .social-icons .fab,
+.page__footer-follow .social-icons .fas {
+  color: $c-muted !important;
+  transition: color 0.25s $ease, transform 0.25s $ease;
+}
+
+.page__footer-follow .social-icons a:hover,
+.page__footer-follow .social-icons a:hover .fa,
+.page__footer-follow .social-icons a:hover .fab,
+.page__footer-follow .social-icons a:hover .fas {
+  color: $c-signal !important;
+}
+
+.page__footer-copyright {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $c-faint;
+}
+
+
+/* ==========================================================================
+   13  MOTION  (content gently "rises" in, staggered)
+   ========================================================================== */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page__content > * {
+  animation: rise 0.7s $ease both;
+}
+
+@for $i from 1 through 12 {
+  .page__content > *:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.045}s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   14  RESPONSIVE
+   ========================================================================== */
+
+// Subtle parallax only where it's smooth (desktop with a real pointer)
+@media (min-width: 1024px) and (hover: hover) {
+  body { background-attachment: scroll, scroll, scroll, fixed; }
+}
+
+@media (max-width: 768px) {
+  .page__content {
+    margin-top: 1rem;
+    border-radius: $r-md;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;      // cheaper on phones
+    background: rgba($c-surface, 0.72);
+  }
+
+  .page__content h2 { margin-top: 2.2rem; }
+
+  .archive__item:hover { transform: none; }
+
+  body::before { background-size: 22px 22px; }
 }
