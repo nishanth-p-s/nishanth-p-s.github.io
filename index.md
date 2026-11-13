@@ -38,13 +38,16 @@ An attempt on building a new encryption architecture specific to Image using kno
 - Deep Learning
 - Cryptography
 
-
-
-## Beyond the screen
+## Beyond the academic life
 
 I'm someone who enjoys learning how things work, experimenting with ideas and occasionally getting lost in research rabbit holes.
+Other Hobbies includes:
 
-Currently learning, building and trying to become a better scientist.
+-Football
+-Boxing
+-Beatboxing
+-Stage Hypnotism
+-Weightlifting
 
 
 
