@@ -8,9 +8,7 @@ author_profile: true
 # Hey, I'm Nishanth! 
 
 I'm a 4th Year Data Science student at **IISER Thiruvananthapuram**, interested in understanding the brain and it's processes through data, mathematics and computation.
-
 I enjoy coding, like a lot! Currently I'm exploring how I can connect Computer vision and Neuroscience. Suggestions are welcome, btw!
-
 I'm still learning, experimenting and building things. This website is where I'll document some of that journey.
 
 
@@ -49,9 +47,8 @@ Other Hobbies includes:
 - Beatboxing
 - Stage Hypnotism
 - Weightlifting
-- Talking
 
-If you feel like reaching out to me, to discuss either research or absolutely anything under the umbrella of hobbies listed above, feel free to drop me a message !
+If you feel like reaching out to me, to discuss either research or absolutely anything under the umbrella of hobbies listed above, feel free to drop me a hi!
 
 
 
