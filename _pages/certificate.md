@@ -2,7 +2,7 @@
 title: "Certificates"
 permalink: /certificates/
 layout: single
-author_profile: true
+author_profile: false
 ---
 
 ## Professional Learning
