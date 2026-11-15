@@ -45,7 +45,7 @@ Other Hobbies includes:
 - Football
 - Boxing
 - Beatboxing
-- Stage Hypnotism
+- Street Hypnotism
 - Weightlifting
 
 If you feel like reaching out to me, to discuss either research or absolutely anything under the umbrella of hobbies listed above, feel free to drop me a hi!
