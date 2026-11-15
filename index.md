@@ -5,15 +5,16 @@ permalink: /
 author_profile: true
 ---
 
-# Hey, I'm Nishanth! 
+## Hey, I'm Nishanth! 
 
 I'm a 4th Year Data Science student at **IISER Thiruvananthapuram**, interested in understanding the brain and it's processes through data, mathematics and computation.
+
 I enjoy coding, like a lot! Currently I'm exploring how I can connect Computer vision and Neuroscience. Suggestions are welcome, btw!
+
 I'm still learning, experimenting and building things. This website is where I'll document some of that journey.
 
-
-
 ## What I'm working on right now
+
 ### -> Sleep Stage Prediction
 Experimenting using EEG and EOG signal processing and machine learning for automatic sleep-stage classification using the Sleep-EDF dataset.
 
@@ -28,6 +29,8 @@ Experimented with *DQN*, *PPO*, *TRPO* in a gymnasium environment created by us 
 ### -> Image Encryption using chaotic map
 An attempt on building a new encryption architecture specific to Image using known chaotic maps. Experimented with a bunch of chaotic maps, First ever proper Research project !
 
+### -> Data Warehousing and Data Cleaning (CGMacros Dataset) (Course Project: DSC 413)
+Collected and pre-processed CGMacros Dataset and implemented a Data Warehouse. Analysed physiological signals around the meal time of individuals to in order to identify patterns in post-meal glucose response based on the available data
 
 ## Areas of Interest
 
