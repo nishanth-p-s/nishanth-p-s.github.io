@@ -40,10 +40,10 @@ Collected and pre-processed CGMacros Dataset and implemented a Data Warehouse. A
 - Deep Learning
 - Cryptography
 
-## Beyond the Academia..
+## Beyond Academia..
 
 I'm someone who enjoys learning how things work, experimenting with ideas and occasionally getting lost in research rabbit holes.
-Other Hobbies includes:
+But I also like to do things like:
 
 - Football
 - Boxing
