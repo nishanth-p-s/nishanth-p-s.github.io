@@ -19,7 +19,7 @@ I'm still learning, experimenting and building things. This website is where I'l
 Experimenting using EEG and EOG signal processing and machine learning for automatic sleep-stage classification using the Sleep-EDF dataset.
 
 ### -> Sign Language Recognition (Course Project: DSC 4109)
-Exploring video-based sign language recognition using deep learning architectures such as I3D and graph-based models (TGCN).
+Exploring video-based sign language recognition using deep learning architectures such as I3D, graph-based models (TGCN and PhonSSM).
 
 ## Previously worked on
 
