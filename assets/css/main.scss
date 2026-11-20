@@ -715,18 +715,19 @@ table {
 
 .certificate-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
   margin-top: 1.5rem;
+  width: 100%;
 }
 
 .certificate-card {
   background: rgba($c-surface, 0.65);
   border: 1px solid $c-line;
   border-radius: $r-md;
-  padding: 1.5rem 1.8rem;
-  box-shadow: $shadow-soft;
+  padding: 1.25rem;
   min-width: 0;
+  box-shadow: $shadow-soft;
 
   transition:
     transform 0.3s $ease,
@@ -737,8 +738,11 @@ table {
     margin-top: 0;
     padding-left: 0;
     border-left: none;
-    line-height: 1.4;
-    overflow-wrap: break-word;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: normal;
+    overflow-wrap: normal;
+    word-break: normal;
     color: $c-signal-hi;
   }
 
@@ -760,14 +764,11 @@ table {
   }
 }
 
-/* Mobile: one certificate per row */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .certificate-grid {
     grid-template-columns: 1fr;
   }
 }
-
-
 
 /* ==========================================================================
    11  SEARCH OVERLAY
