@@ -2,30 +2,39 @@
 title: "Certificates"
 permalink: /certificates/
 layout: single
-author_profile: false
+author_profile: true
 ---
 
 ## Professional Learning
 
 <div class="certificate-grid">
+<div class="certificate-card">
 
-  <div class="certificate-card">
-    <h3>Deep Learning for Natural Language Processing</h3>
-    <p><strong>Platform:</strong> NPTEL</p>
-    <p><strong>Achievement:</strong> Top 5% marks</p>
-    <a href="/assets/certificates/nptel-deep-learning-nlp.pdf" target="_blank">View Certificate →</a>
-  </div>
+### Deep Learning for Natural Language Processing
 
-  <div class="certificate-card">
-    <h3>German - I</h3>
-    <p><strong>Platform:</strong> NPTEL</p>
-    <a href="/assets/certificates/nptel-german-1.pdf" target="_blank">View Certificate →</a>
-  </div>
+**Platform:** NPTEL
 
-  <div class="certificate-card">
-    <h3>Foundations of Neuroscience</h3>
-    <p><strong>Platform:</strong> Coursera</p>
-    <a href="/assets/certificates/coursera-neuroscience.pdf" target="_blank">View Certificate →</a>
-  </div>
+**Achievement:** Top 5% marks
 
+[View Certificate](/assets/certificates/nptel-deep-learning-nlp.pdf)
+
+</div>
+<div class="certificate-card">
+
+### German - I
+
+**Platform:** NPTEL
+
+[View Certificate](/assets/certificates/nptel-german-1.pdf)
+
+</div>
+<div class="certificate-card">
+
+### Foundations of Neuroscience
+
+**Platform:** Coursera
+
+[View Certificate](/assets/certificates/coursera-neuroscience.pdf)
+
+</div>
 </div>
