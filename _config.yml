@@ -65,7 +65,7 @@ author:
   bio    : "Data Science student | Exploring ML, Neuroscience, Computer Vision and Cryptography"
   links:
     - label: "Instagram"
-      icon: "fas fa-fw fa-instagram"
+      icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/nishanthps_/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
