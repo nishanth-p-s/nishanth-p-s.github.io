@@ -901,3 +901,15 @@ table {
   max-width: none;
   box-sizing: border-box;
 }
+
+/* Restore EEG divider on homepage splash heading */
+.splash .page__content > h2:first-child::after {
+  content: "";
+  position: static;
+  display: block;
+  width: 180px;
+  height: 18px;
+  margin-top: 0.9rem;
+  background: $eeg-trace no-repeat left center;
+  opacity: 0.85;
+}
