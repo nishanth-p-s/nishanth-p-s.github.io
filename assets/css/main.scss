@@ -894,3 +894,10 @@ table {
 
   body::before { background-size: 22px 22px; }
 }
+
+/* Wider certificates content */
+.page.wide .page__content {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
